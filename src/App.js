@@ -146,7 +146,8 @@ class App extends Component {
     //   "gender": "male"
     // }
     let filtereData = this.state.searchJson.filter(item=>{
-      return item.name.includes(text);
+      let lowerCase = item.name.toLowerCase();
+      return lowerCase.includes(text);
     });
     console.log(filtereData);
     this.setState({
