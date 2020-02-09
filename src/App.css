@@ -42,3 +42,13 @@
     transform: rotate(360deg);
   }
 }
+div.rightsidebar {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width:100px;
+    height:100px;
+}
+div.rightsidebar::-webkit-scrollbar { 
+    width: 0 !important;
+}

@@ -4,12 +4,17 @@ import "./App.css";
 import Search from "./search/index";
 import SearchTable from "./searchTable/index";
 import MatchElements from "./matchElement/index";
+import Btn from "./hocComponent/Btn";
+import TextHover from "./hocComponent/textHover";
+import Fblogin from "./Fblogin";
+import { Scrollbars } from "react-custom-scrollbars";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchData: [],
+      showContent: false,
       searchJson: [
         {
           _id: "5c7d0457d011c129b2d5e05d",
@@ -159,11 +164,33 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <div className="container">
-          <Search searchItem = {this.searchItem}/>
-          <SearchTable searchData = {this.state.searchData}/>
-        </div> */}
+        <div className="container">
+          <Search searchItem={this.searchItem} />
+          <SearchTable searchData={this.state.searchData} />
+        </div>
         <MatchElements />
+        {/* <Fblogin/> */}
+        <button
+          className="btn btn-primary"
+          onClick={e => {
+            let showContent = !this.state.showContent;
+            this.setState({ showContent });
+          }}
+        >
+          click
+        </button>
+        {this.state.showContent && (
+          <Scrollbars autoHeight autoHeightMin={0} autoHeightMax={200}>
+            <div className="rightsidebar">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora
+              delectus, necessitatibus ducimus. Eos praesentium, fugiat. Autem
+              facere magni, expedita eveniet nihil, fuga consequuntur nostrum
+              quae aliquid vel doloremque esse adipisci.
+            </div>
+          </Scrollbars>
+        )}
+        <Btn />
+        <TextHover />
       </div>
     );
   }
